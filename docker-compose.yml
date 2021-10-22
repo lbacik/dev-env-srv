@@ -80,7 +80,12 @@ services:
       - "${DOCKER_SOCKET}:/var/run/docker.sock"
     environment:
       VIRTUAL_HOST: "clist.proxy.${DOMAIN}"
-      #VIRTUAL_PORT: 3000 - lack of EXPOSE in the image
+      VIRTUAL_PORT: 3000
+      #LETSENCRYPT_HOST: "clist.proxy.${DOMAIN}"
+    networks:
+      net:
+        aliases:
+          - "clist.${DOMAIN}"
 
   ssh:
     image: lbacik/ssh-passthrough
