@@ -83,7 +83,7 @@ services:
       VIRTUAL_PORT: 3000
       #LETSENCRYPT_HOST: "clist.proxy.${DOMAIN}"
     networks:
-      net:
+      default:
         aliases:
           - "clist.${DOMAIN}"
 
